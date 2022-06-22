@@ -5,6 +5,7 @@ const morgan = require('morgan')
 
 // ? Import files
 const config = require('./config')
+const userRouter = require('./users/users.routes').router
 
 // ? Initial configuration 
 const app = express()
@@ -22,8 +23,8 @@ if (config.nodeEnv === 'development') {
 }
 
 // * Routes
-app.use('/api/v1/users')
-app.use('/api/v1/auth')
+app.use('/api/v1/users', userRouter)
+// app.use('/api/v1/auth')
 
 // * EndPoints
 
